@@ -46,7 +46,7 @@ export default function App() {
       <View style={styles.imgbox}> 
       <Image source={require('./assets/black-motorcycle-white.jpg')} style={styles.img}></Image>
       <Text style={{color: '#FFFFFF',marginLeft: 25,fontSize: 15,fontWeight:'bold'}}> Bajaj Avenger</Text>
-      <Text style={{color: '#FED766',marginLeft: 35,fontSize: 15}}> ₹1,00,000</Text>
+      <Text style={{color: '#FED766',marginLeft: 35,fontSize: 15}}> ₹1,20,000</Text>
       </View>
       </View>
       <View style={{flexDirection:'row',justifyContent:'space-evenly'}}>
