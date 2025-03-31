@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput,Image, ScrollView, TouchableOpacity }
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-export function Home(){
+export function Home({ navigation }){
     return(
         <View style={styles.container}>
     <ScrollView>
@@ -18,9 +18,11 @@ export function Home(){
       <Text style={{fontSize: 20,color: '#FFFFFF',fontWeight:'bold'}}>Top Categories</Text>
     </View>
     <View style={styles.tcboxes}>
-        <View style={styles.tcicons}>
+        <TouchableOpacity style={styles.tcicons}>
+        <View >
           <Icon name="mobile" size={50} color={'#FFFFFF'}/>
         </View>
+        </TouchableOpacity>
         <View style={styles.tcicons}><Icon name="tv" size={40} color={'#FFFFFF'} /></View>
         <View style={styles.tcicons} ><Icon name="car" size={40} color={'#FFFFFF'}/></View>
         <View  style={styles.tcicons}><Icon name="motorcycle" size={40} color={'#FFFFFF'}/></View>
@@ -37,11 +39,13 @@ export function Home(){
     </View>
     </View>
     <View style={{flexDirection:'row',justifyContent:'space-evenly'}}>
-     <View style={styles.imgbox}> 
+      <TouchableOpacity style={styles.imgbox}>
+     <View > 
     <Image source={require('../assets/white-offroader-jeep-parking.jpg')} style={styles.img}></Image>
     <Text style={{color: '#FFFFFF',marginLeft: 25,fontSize: 15,fontWeight:'bold'}}>White defender</Text>
     <Text style={{color: '#FED766',marginLeft: 35,fontSize: 15}}>₹10,00,000</Text>
     </View>
+    </TouchableOpacity>
     <View style={styles.imgbox}> 
     <Image source={require('../assets/black-motorcycle-white.jpg')} style={styles.img}></Image>
     <Text style={{color: '#FFFFFF',marginLeft: 25,fontSize: 15,fontWeight:'bold'}}> Bajaj Avenger</Text>
@@ -64,7 +68,7 @@ export function Home(){
     </View>
     <View style={{alignItems:'center'}}>
     <View style={styles.footerbar}>
-    <TouchableOpacity style={{width:'10%',marginTop:5,marginLeft:7.5}}>
+    <TouchableOpacity style={{width:'10%',marginTop:5,marginLeft:7.5}} onPress={() => navigation.navigate('Profile')}>
       <View style={{backgroundColor:'#000000',alignItems:'center',borderRadius:10}}>
        <Icon name="user" size={40} color={'#FED766'}/>
       </View>
