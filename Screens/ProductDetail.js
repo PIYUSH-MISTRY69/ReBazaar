@@ -2,11 +2,13 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import Footer from '../components/Footer';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { useCart } from '../context/CartContext';
 
 const { height } = Dimensions.get('window');
 
 const ProductDetailsScreen = ({ route }) => {
   const { product } = route.params;
+  const { addToCart } = useCart();
 
   return (
     <View style={styles.container}>
@@ -42,7 +44,7 @@ const ProductDetailsScreen = ({ route }) => {
       </ScrollView>
 
       <View style={styles.actionBar}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => addToCart(product)}>
           <Icon name="shopping-cart" size={20} color="#000" />
           <Text style={styles.buttonText}>Add to Cart</Text>
         </TouchableOpacity>

@@ -12,7 +12,10 @@ export function Home({ navigation }){
           <Image style={styles.logo} source={require('../assets/rebazaar.jpg')}></Image>
       </View>
       <TextInput style={styles.search} placeholder='Search' placeholderTextColor={'#FFFFFF'}></TextInput>
-      <Icon style={styles.icon2} name="cart-plus" size={33}  />
+      <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+        <Icon style={styles.icon2} name="cart-plus" size={33}  />
+      </TouchableOpacity>
+      
     </View>
     <View style={styles.label}>
       <Text style={{fontSize: 20,color: '#FFFFFF',fontWeight:'bold'}}>Top Categories</Text>
@@ -93,12 +96,12 @@ export function Home({ navigation }){
        <Icon name="suitcase" size={40} color={'#FED766'}/>
       </View>
       </TouchableOpacity>
-      <TouchableOpacity style={{width:'20%'}}>
-      <View style={{backgroundColor:'#000000',alignItems:'center',borderRadius:10}}>
-       <Icon name="plus" size={50} color={'#FED766'}/>
-      </View>
+      <TouchableOpacity style={{width:'20%'}} onPress={() => navigation.navigate('AddProduct')}>
+        <View style={{backgroundColor:'#000000',alignItems:'center',borderRadius:10}}>
+          <Icon name="plus" size={50} color={'#FED766'}/>
+        </View>
       </TouchableOpacity>
-      <TouchableOpacity style={{width:'12%',marginTop:5}}>
+      <TouchableOpacity style={{width:'12%',marginTop:5}} >
       <View style={{backgroundColor:'#000000',alignItems:'center',borderRadius:10}}>
        <Icon name="comment" size={40} color={'#FED766'}/>
       </View>
@@ -125,6 +128,7 @@ const styles = StyleSheet.create({
     
     header:{
       flexDirection:'row',
+      justifyContent : "space-evenly",
       borderBottomWidth: 3,
       borderBottomColor: '#FED766'
     } ,
@@ -134,7 +138,7 @@ const styles = StyleSheet.create({
       width:40,
       backgroundColor:'#FED766',
       marginTop: 48,
-      marginLeft: 15,
+      marginLeft: 0,
       borderRadius:5,
       alignItems:'center',
       justifyContent:'center'
@@ -153,7 +157,7 @@ const styles = StyleSheet.create({
       borderColor: '#FED766',
       borderRadius: 10,
       marginTop: 40,
-      marginLeft: 20,
+      marginLeft: 0,
       width: 270,
       paddingLeft: 10,
       marginBottom:20,
@@ -168,7 +172,7 @@ const styles = StyleSheet.create({
     
     icon2: {
       color:"#FED766",
-      marginLeft: 15,
+      marginLeft:0,
       marginTop: 50,
     },
     
