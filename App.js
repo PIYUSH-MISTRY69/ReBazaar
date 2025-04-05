@@ -18,6 +18,7 @@ import HeadphonesScreen from './Screens/HeadphonesScreen';
 import CameraScreen from './Screens/CameraScreen';
 import RealEstateScreen from './Screens/RealEstateScreen';
 import GamesScreen from './Screens/GamesScreen';
+import ProductDetail from './Screens/ProductDetail';
 
 const Stack = createStackNavigator();
 
@@ -35,6 +36,7 @@ export default function App() {
         <Stack.Screen name="Camera" component={CameraScreen} />
         <Stack.Screen name="RealEstate" component={RealEstateScreen} />
         <Stack.Screen name="Games" component={GamesScreen} />
+        <Stack.Screen name="ProductDetail" component={ProductDetail} />
       </Stack.Navigator>
     </NavigationContainer>
   );

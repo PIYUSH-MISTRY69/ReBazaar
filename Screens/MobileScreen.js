@@ -16,30 +16,58 @@ const { width, height } = Dimensions.get('window');
 const products = [
   {
     id: '1',
-    title: 'Samsung Galaxy S21',
-    price: '₹45,000',
-    image: require('../assets/galaxy.jpg'),
+    title: 'iPhone 14',
+    price: '₹75,000',
+    image: require('../assets/iphone.jpg'),
+    details: '128GB, Midnight Black, 5G',
+    description: 'Brand new iPhone 14 with 1 year warranty.',
+    seller: {
+      name: 'Aman Sharma',
+      rating: 4.5,
+      yearsOnPlatform: 3,
+    },
   },
   {
     id: '2',
-    title: 'iPhone 13 Pro Max',
-    price: '₹85,000',
-    image: require('../assets/iphone.jpg'),
+    title: 'Samsung Galaxy S22',
+    price: '₹55,000',
+    image: require('../assets/galaxy.jpg'),
+    details: '128GB, Midnight Black, 5G',
+    description: 'Brand new iPhone 14 with 1 year warranty.',
+    seller: {
+      name: 'Aman Sharma',
+      rating: 4.5,
+      yearsOnPlatform: 3,
+    },
   },
   {
     id: '3',
-    title: 'OnePlus Nord CE',
-    price: '₹22,000',
+    title: 'OnePlus 11R',
+    price: '₹40,000',
     image: require('../assets/oneplus.jpg'),
+    details: '128GB, Midnight Black, 5G',
+    description: 'Brand new iPhone 14 with 1 year warranty.',
+    seller: {
+      name: 'Aman Sharma',
+      rating: 4.5,
+      yearsOnPlatform: 3,
+    },
   },
   {
     id: '4',
-    title: 'Redmi Note 12',
-    price: '₹14,000',
+    title: 'redmi',
+    price: '₹39,999',
     image: require('../assets/redmi.jpg'),
+    details: '128GB, Midnight Black, 5G',
+    description: 'Brand new iPhone 14 with 1 year warranty.',
+    seller: {
+      name: 'Aman Sharma',
+      rating: 4.5,
+      yearsOnPlatform: 3,
+    },
   },
-  
 ];
+
 
 export default function MobileScreen({ navigation }) {
   const [search, setSearch] = useState('');
@@ -49,7 +77,10 @@ export default function MobileScreen({ navigation }) {
   );
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity style={styles.card}>
+    <TouchableOpacity 
+      style={styles.card}
+      onPress={() => navigation.navigate('ProductDetail', { product: item })}
+    >
       <Image source={item.image} style={styles.image} />
       <Text style={styles.title}>{item.title}</Text>
       <Text style={styles.price}>{item.price}</Text>
