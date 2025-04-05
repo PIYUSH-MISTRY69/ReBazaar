@@ -17,22 +17,37 @@ export function Home({ navigation }){
     <View style={styles.label}>
       <Text style={{fontSize: 20,color: '#FFFFFF',fontWeight:'bold'}}>Top Categories</Text>
     </View>
+
     <View style={styles.tcboxes}>
-        <TouchableOpacity style={styles.tcicons}>
-        <View >
-          <Icon name="mobile" size={50} color={'#FFFFFF'}/>
-        </View>
-        </TouchableOpacity>
-        <View style={styles.tcicons}><Icon name="tv" size={40} color={'#FFFFFF'} /></View>
-        <View style={styles.tcicons} ><Icon name="car" size={40} color={'#FFFFFF'}/></View>
-        <View  style={styles.tcicons}><Icon name="motorcycle" size={40} color={'#FFFFFF'}/></View>
+      <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Mobile')}>
+        <Icon name="mobile" size={50} color={'#FFFFFF'} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('TV')}>
+        <Icon name="tv" size={40} color={'#FFFFFF'} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Car')}>
+        <Icon name="car" size={40} color={'#FFFFFF'} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Motorcycle')}>
+        <Icon name="motorcycle" size={40} color={'#FFFFFF'} />
+      </TouchableOpacity>
     </View>
+
     <View style={styles.tcboxes}>
-        <View style={styles.tcicons}><Icon name="headphones" size={50} color={'#FFFFFF'}/></View>
-        <View style={styles.tcicons}><Icon name="camera-retro" size={40} color={'#FFFFFF'}/></View>
-        <View style={styles.tcicons} ><Icon name="building" size={40} color={'#FFFFFF'}/></View>
-        <View  style={styles.tcicons}><Icon name="gamepad" size={40} color={'#FFFFFF'}/></View>
+      <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Headphones')}>
+        <Icon name="headphones" size={50} color={'#FFFFFF'} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Camera')}>
+        <Icon name="camera-retro" size={40} color={'#FFFFFF'} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('RealEstate')}>
+        <Icon name="building" size={40} color={'#FFFFFF'} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Games')}>
+        <Icon name="gamepad" size={40} color={'#FFFFFF'} />
+      </TouchableOpacity>
     </View>
+
     <View style={{alignItems:'center'}}>
     <View style={{backgroundColor:'#FED766',marginTop:20,width:'30%',borderRadius:9,padding:3}}>
       <Text style={{textAlign: 'center',fontSize: 20,color: '#000000',fontWeight:'bold'}}>For You!</Text>
