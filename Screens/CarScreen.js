@@ -104,6 +104,8 @@ export default function MobileScreen({ navigation }) {
         columnWrapperStyle={styles.row}
         contentContainerStyle={{ paddingBottom: 100 }}
       />
+
+
       <Footer navigation={navigation} />
     </View>
   );
