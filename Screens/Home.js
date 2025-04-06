@@ -1,8 +1,27 @@
-import { StyleSheet, Text, View, TextInput, Image, ScrollView, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  FlatList,
+  Image,
+  TouchableOpacity,
+  Dimensions,
+  ScrollView,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import Footer from '../components/Footer'; // import the reusable Footer
+import { allProducts } from '../data/allProducts';
+import Footer from '../components/Footer';
 
-export function Home({ navigation }) {
+const { width, height } = Dimensions.get('window');
+
+export default function Home({ navigation }) {
+  const [search, setSearch] = useState('');
+
+  const filteredProducts = allProducts.filter(product =>
+    product.title.toLowerCase().includes(search.toLowerCase())
+  );
 
   const hotPicks = [
     {
@@ -43,77 +62,109 @@ export function Home({ navigation }) {
     }
   ];
 
+  const renderProduct = ({ item }) => (
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => navigation.navigate('ProductDetail', { product: item })}
+    >
+      <Image source={item.image} style={styles.image} />
+      <Text style={styles.title}>{item.title}</Text>
+      <Text style={styles.price}>{item.price}</Text>
+    </TouchableOpacity>
+  );
+
   return (
     <View style={styles.container}>
-      <ScrollView>
-        <View style={styles.header}>
-          <View style={styles.logobox}>
-            <Image style={styles.logo} source={require('../assets/rebazaar.jpg')} />
+      <View style={styles.header}>
+        <View style={styles.logobox}>
+          <Image style={styles.logo} source={require('../assets/rebazaar.jpg')} />
+        </View>
+        <TextInput
+          placeholder="Search all products..."
+          placeholderTextColor="#FFFFFF"
+          style={styles.search}
+          value={search}
+          onChangeText={setSearch}
+        />
+        <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+          <Icon style={styles.icon2} name="cart-plus" size={33} />
+        </TouchableOpacity>
+      </View>
+
+      {search.length > 0 ? (
+        filteredProducts.length > 0 ? (
+          <FlatList
+            data={filteredProducts}
+            renderItem={renderProduct}
+            keyExtractor={item => item.id}
+            numColumns={2}
+            columnWrapperStyle={styles.row}
+            contentContainerStyle={{ paddingBottom: 100 }}
+          />
+        ) : (
+          <View style={styles.notFoundContainer}>
+            <Text style={styles.notFoundText}>No products found</Text>
           </View>
-          <TextInput style={styles.search} placeholder='Search' placeholderTextColor={'#FFFFFF'} />
-          <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
-            <Icon style={styles.icon2} name="cart-plus" size={33} />
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.label}>
-          <Text style={{ fontSize: 20, color: '#FFFFFF', fontWeight: 'bold' }}>Top Categories</Text>
-        </View>
-
-        <View style={styles.tcboxes}>
-          <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Mobile')}>
-            <Icon name="mobile" size={50} color={'#FFFFFF'} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('TV')}>
-            <Icon name="tv" size={40} color={'#FFFFFF'} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Car')}>
-            <Icon name="car" size={40} color={'#FFFFFF'} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Motorcycle')}>
-            <Icon name="motorcycle" size={40} color={'#FFFFFF'} />
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.tcboxes}>
-          <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Headphones')}>
-            <Icon name="headphones" size={50} color={'#FFFFFF'} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Camera')}>
-            <Icon name="camera-retro" size={40} color={'#FFFFFF'} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('RealEstate')}>
-            <Icon name="building" size={40} color={'#FFFFFF'} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Games')}>
-            <Icon name="gamepad" size={40} color={'#FFFFFF'} />
-          </TouchableOpacity>
-        </View>
-
-        <View style={{ alignItems: 'center' }}>
-          <View style={{ backgroundColor: '#FED766', marginTop: 20, width: '30%', borderRadius: 9, padding: 3 }}>
-            <Text style={{ textAlign: 'center', fontSize: 20, color: '#000000', fontWeight: 'bold' }}>Hot picks!</Text>
+        )
+      ) : (
+        <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
+          <View style={styles.label}>
+            <Text style={{ fontSize: 20, color: '#FFFFFF', fontWeight: 'bold' }}>Top Categories</Text>
           </View>
-        </View>
 
-        <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
-          {hotPicks.map((product) => (
-            <TouchableOpacity
-              key={product.id}
-              style={styles.imgbox}
-              onPress={() => navigation.navigate('ProductDetail', { product })}
-            >
-              <Image source={product.image} style={styles.img} />
-              <Text style={{ color: '#FFFFFF', fontSize: 15, fontWeight: 'bold' }}>{product.title}</Text>
-              <Text style={{ color: '#FED766', fontSize: 15 }}>{product.price}</Text>
+          <View style={styles.tcboxes}>
+            <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Mobile')}>
+              <Icon name="mobile" size={50} color={'#FFFFFF'} />
             </TouchableOpacity>
-          ))}
-        </View>
+            <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('TV')}>
+              <Icon name="tv" size={40} color={'#FFFFFF'} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Car')}>
+              <Icon name="car" size={40} color={'#FFFFFF'} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Motorcycle')}>
+              <Icon name="motorcycle" size={40} color={'#FFFFFF'} />
+            </TouchableOpacity>
+          </View>
 
-        <View style={{ alignItems: 'center' }}>
-          <Footer navigation={navigation} />
-        </View>
-      </ScrollView>
+          <View style={styles.tcboxes}>
+            <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Headphones')}>
+              <Icon name="headphones" size={50} color={'#FFFFFF'} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Camera')}>
+              <Icon name="camera-retro" size={40} color={'#FFFFFF'} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('RealEstate')}>
+              <Icon name="building" size={40} color={'#FFFFFF'} />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Games')}>
+              <Icon name="gamepad" size={40} color={'#FFFFFF'} />
+            </TouchableOpacity>
+          </View>
+
+          <View style={{ alignItems: 'center' }}>
+            <View style={{ backgroundColor: '#FED766', marginTop: 20, width: '30%', borderRadius: 9, padding: 3 }}>
+              <Text style={{ textAlign: 'center', fontSize: 20, color: '#000000', fontWeight: 'bold' }}>Hot picks!</Text>
+            </View>
+          </View>
+
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
+            {hotPicks.map((product) => (
+              <TouchableOpacity
+                key={product.id}
+                style={styles.imgbox}
+                onPress={() => navigation.navigate('ProductDetail', { product })}
+              >
+                <Image source={product.image} style={styles.img} />
+                <Text style={{ color: '#FFFFFF', fontSize: 15, fontWeight: 'bold' }}>{product.title}</Text>
+                <Text style={{ color: '#FED766', fontSize: 15 }}>{product.price}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+        </ScrollView>
+      )}
+
+      <Footer navigation={navigation} />
     </View>
   );
 }
@@ -121,14 +172,14 @@ export function Home({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#272727',
-    height: '100%',
-    width: '100%',
+    flex: 1,
+    paddingHorizontal: 10,
   },
   header: {
     flexDirection: 'row',
     justifyContent: "space-evenly",
     borderBottomWidth: 3,
-    borderBottomColor: '#FED766'
+    borderBottomColor: '#FED766',
   },
   logobox: {
     height: 40,
@@ -145,12 +196,12 @@ const styles = StyleSheet.create({
     borderRadius: 5
   },
   search: {
-    fontSize: 20,
+    fontSize: 16,
     borderWidth: 2,
     borderColor: '#FED766',
     borderRadius: 10,
     marginTop: 40,
-    width: 270,
+    width: 240,
     paddingLeft: 10,
     marginBottom: 20,
     color: '#FFFFFF'
@@ -158,6 +209,39 @@ const styles = StyleSheet.create({
   icon2: {
     color: "#FED766",
     marginTop: 50,
+  },
+  row: {
+    justifyContent: 'space-between',
+    marginBottom: 15,
+  },
+  card: {
+    backgroundColor: '#1e1e1e',
+    width: (width - 40) / 2,
+    height: height * 0.3,
+    borderRadius: 10,
+    borderColor: '#FED766',
+    borderWidth: 1,
+    padding: 10,
+    alignItems: 'center',
+  },
+  image: {
+    width: '100%',
+    height: '80%',
+    resizeMode: 'cover',
+    borderRadius: 8,
+  },
+  title: {
+    fontSize: 16,
+    color: '#FFFFFF',
+    fontWeight: 'bold',
+    marginTop: 8,
+    textAlign: 'center',
+  },
+  price: {
+    fontSize: 14,
+    color: '#FED766',
+    marginTop: 4,
+    textAlign: 'center',
   },
   label: {
     alignItems: 'center',
@@ -169,7 +253,7 @@ const styles = StyleSheet.create({
   tcboxes: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    height: '10%'
+    marginVertical: 10,
   },
   tcicons: {
     width: '20%',
@@ -180,7 +264,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 55,
-    marginTop: 10,
     margin: 5
   },
   img: {
@@ -193,5 +276,15 @@ const styles = StyleSheet.create({
   imgbox: {
     marginTop: 20,
     alignItems: "center"
-  }
+  },
+  notFoundContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  notFoundText: {
+    fontSize: 18,
+    color: '#FFF',
+    marginTop: 50,
+  },
 });

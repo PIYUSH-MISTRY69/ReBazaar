@@ -68,7 +68,7 @@ const products = [
   },
 ];
 
-
+export const tvProducts = products;
 export default function MobileScreen({ navigation }) {
   const [search, setSearch] = useState('');
 
