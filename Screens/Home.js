@@ -12,83 +12,107 @@ export function Home({ navigation }){
           <Image style={styles.logo} source={require('../assets/rebazaar.jpg')}></Image>
       </View>
       <TextInput style={styles.search} placeholder='Search' placeholderTextColor={'#FFFFFF'}></TextInput>
-      <Icon style={styles.icon2} name="cart-plus" size={33}  />
+      <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+        <Icon style={styles.icon2} name="cart-plus" size={33}  />
+      </TouchableOpacity>
+      
     </View>
     <View style={styles.label}>
       <Text style={{fontSize: 20,color: '#FFFFFF',fontWeight:'bold'}}>Top Categories</Text>
     </View>
+
     <View style={styles.tcboxes}>
-        <TouchableOpacity style={styles.tcicons}>
-        <View >
-          <Icon name="mobile" size={50} color={'#FFFFFF'}/>
-        </View>
-        </TouchableOpacity>
-        <View style={styles.tcicons}><Icon name="tv" size={40} color={'#FFFFFF'} /></View>
-        <View style={styles.tcicons} ><Icon name="car" size={40} color={'#FFFFFF'}/></View>
-        <View  style={styles.tcicons}><Icon name="motorcycle" size={40} color={'#FFFFFF'}/></View>
+      <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Mobile')}>
+        <Icon name="mobile" size={50} color={'#FFFFFF'} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('TV')}>
+        <Icon name="tv" size={40} color={'#FFFFFF'} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Car')}>
+        <Icon name="car" size={40} color={'#FFFFFF'} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Motorcycle')}>
+        <Icon name="motorcycle" size={40} color={'#FFFFFF'} />
+      </TouchableOpacity>
     </View>
+
     <View style={styles.tcboxes}>
-        <View style={styles.tcicons}><Icon name="headphones" size={50} color={'#FFFFFF'}/></View>
-        <View style={styles.tcicons}><Icon name="camera-retro" size={40} color={'#FFFFFF'}/></View>
-        <View style={styles.tcicons} ><Icon name="building" size={40} color={'#FFFFFF'}/></View>
-        <View  style={styles.tcicons}><Icon name="gamepad" size={40} color={'#FFFFFF'}/></View>
+      <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Headphones')}>
+        <Icon name="headphones" size={50} color={'#FFFFFF'} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Camera')}>
+        <Icon name="camera-retro" size={40} color={'#FFFFFF'} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('RealEstate')}>
+        <Icon name="building" size={40} color={'#FFFFFF'} />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.tcicons} onPress={() => navigation.navigate('Games')}>
+        <Icon name="gamepad" size={40} color={'#FFFFFF'} />
+      </TouchableOpacity>
     </View>
+
     <View style={{alignItems:'center'}}>
     <View style={{backgroundColor:'#FED766',marginTop:20,width:'30%',borderRadius:9,padding:3}}>
-      <Text style={{textAlign: 'center',fontSize: 20,color: '#000000',fontWeight:'bold'}}>For You!</Text>
+      <Text style={{textAlign: 'center',fontSize: 20,color: '#000000',fontWeight:'bold'}}>Hot picks!</Text>
     </View>
     </View>
     <View style={{flexDirection:'row',justifyContent:'space-evenly'}}>
       <TouchableOpacity style={styles.imgbox}>
      <View > 
     <Image source={require('../assets/white-offroader-jeep-parking.jpg')} style={styles.img}></Image>
-    <Text style={{color: '#FFFFFF',marginLeft: 25,fontSize: 15,fontWeight:'bold'}}>White defender</Text>
-    <Text style={{color: '#FED766',marginLeft: 35,fontSize: 15}}>₹10,00,000</Text>
+    <Text style={{color: '#FFFFFF',marginLeft: 45,fontSize: 15,fontWeight:'bold'}}>White defender</Text>
+    <Text style={{color: '#FED766',marginLeft: 55,fontSize: 15}}>₹10,00,000</Text>
     </View>
     </TouchableOpacity>
-    <View style={styles.imgbox}> 
+    <TouchableOpacity style={styles.imgbox}>
+    <View > 
     <Image source={require('../assets/black-motorcycle-white.jpg')} style={styles.img}></Image>
-    <Text style={{color: '#FFFFFF',marginLeft: 25,fontSize: 15,fontWeight:'bold'}}> Bajaj Avenger</Text>
-    <Text style={{color: '#FED766',marginLeft: 35,fontSize: 15}}> ₹1,20,000</Text>
+    <Text style={{color: '#FFFFFF',marginLeft: 45,fontSize: 15,fontWeight:'bold'}}> Bajaj Avenger</Text>
+    <Text style={{color: '#FED766',marginLeft: 60,fontSize: 15}}> ₹1,20,000</Text>
     </View>
+    </TouchableOpacity>
     </View>
     <View style={{flexDirection:'row',justifyContent:'space-evenly'}}>
-     <View style={styles.imgbox}> 
-    <Image source={require('../assets/black-motorcycle-white.jpg')} style={styles.img}></Image>
-    <Text style={{color: '#FFFFFF',marginLeft: 25,fontSize: 15,fontWeight:'bold'}}> Bajaj Avenger</Text>
-    <Text style={{color: '#FED766',marginLeft: 35,fontSize: 15}}> ₹1,00,000</Text>
+      <TouchableOpacity style={styles.imgbox}>
+     <View > 
+    <Image source={require('../assets/2024-toyota-supra-45th-anniversary-edition_100889287_h.jpg')} style={styles.img}></Image>
+    <Text style={{color: '#FFFFFF',marginLeft: 45,fontSize: 15,fontWeight:'bold'}}> Toyota Supra</Text>
+    <Text style={{color: '#FED766',marginLeft: 60,fontSize: 15}}> ₹9,00,000</Text>
     </View>
-    <View style={styles.imgbox}> 
-    <Image source={require('../assets/white-offroader-jeep-parking.jpg')} style={styles.img}></Image>
-    <Text style={{color: '#FFFFFF',marginLeft: 25,fontSize: 15,fontWeight:'bold'}}>White defender</Text>
-    <Text style={{color: '#FED766',marginLeft: 35,fontSize: 15}}>₹10,00,000</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.imgbox}>
+    <View > 
+    <Image source={require('../assets/royal-enfield-continental-gt-650-twin-1567499781.jpg')} style={styles.img}></Image>
+    <Text style={{color: '#FFFFFF',marginLeft: 35,fontSize: 15,fontWeight:'bold'}}>Continental Gt650</Text>
+    <Text style={{color: '#FED766',marginLeft: 65,fontSize: 15}}>₹1,70,000</Text>
     </View>
+    </TouchableOpacity>
     </View>
     <View style={{flexDirection:'row',justifyContent:'space-evenly'}}>
     </View>
     <View style={{alignItems:'center'}}>
     <View style={styles.footerbar}>
-    <TouchableOpacity style={{width:'10%',marginTop:5,marginLeft:7.5}} onPress={() => navigation.navigate('Profile')}>
+    <TouchableOpacity style={{width:'10%',marginTop:5,marginLeft:7.5}} onPress={() => navigation.navigate('Home')}>
+      <View style={{backgroundColor:'#000000',alignItems:'center',borderRadius:10}}>
+       <Icon name="home" size={40} color={'#FED766'}/>
+      </View>
+      </TouchableOpacity>
+    <TouchableOpacity style={{width:'12%',marginTop:5}}  onPress={() => navigation.navigate('Profile')}>
       <View style={{backgroundColor:'#000000',alignItems:'center',borderRadius:10}}>
        <Icon name="user" size={40} color={'#FED766'}/>
       </View>
       </TouchableOpacity>
-    <TouchableOpacity style={{width:'12%',marginTop:5}}>
-      <View style={{backgroundColor:'#000000',alignItems:'center',borderRadius:10}}>
-       <Icon name="suitcase" size={40} color={'#FED766'}/>
-      </View>
+      <TouchableOpacity style={{width:'20%'}} onPress={() => navigation.navigate('AddProduct')}>
+        <View style={{backgroundColor:'#000000',alignItems:'center',borderRadius:10}}>
+          <Icon name="plus" size={50} color={'#FED766'}/>
+        </View>
       </TouchableOpacity>
-      <TouchableOpacity style={{width:'20%'}}>
-      <View style={{backgroundColor:'#000000',alignItems:'center',borderRadius:10}}>
-       <Icon name="plus" size={50} color={'#FED766'}/>
-      </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={{width:'12%',marginTop:5}}>
+      <TouchableOpacity style={{width:'12%',marginTop:5}} >
       <View style={{backgroundColor:'#000000',alignItems:'center',borderRadius:10}}>
        <Icon name="comment" size={40} color={'#FED766'}/>
       </View>
       </TouchableOpacity>
-      <TouchableOpacity style={{width:'10%',marginTop:5,marginRight:7.5}}>
+      <TouchableOpacity style={{width:'10%',marginTop:5,marginRight:7.5}} onPress={() => navigation.navigate('Aboutus')}>
       <View style={{backgroundColor:'#000000',alignItems:'center',borderRadius:10}}>
        <Icon name="exclamation" size={40} color={'#FED766'}/>
       </View>
@@ -110,6 +134,7 @@ const styles = StyleSheet.create({
     
     header:{
       flexDirection:'row',
+      justifyContent : "space-evenly",
       borderBottomWidth: 3,
       borderBottomColor: '#FED766'
     } ,
@@ -119,7 +144,7 @@ const styles = StyleSheet.create({
       width:40,
       backgroundColor:'#FED766',
       marginTop: 48,
-      marginLeft: 15,
+      marginLeft: 0,
       borderRadius:5,
       alignItems:'center',
       justifyContent:'center'
@@ -138,7 +163,7 @@ const styles = StyleSheet.create({
       borderColor: '#FED766',
       borderRadius: 10,
       marginTop: 40,
-      marginLeft: 20,
+      marginLeft: 0,
       width: 270,
       paddingLeft: 10,
       marginBottom:20,
@@ -153,7 +178,7 @@ const styles = StyleSheet.create({
     
     icon2: {
       color:"#FED766",
-      marginLeft: 15,
+      marginLeft:0,
       marginTop: 50,
     },
     
@@ -187,10 +212,11 @@ const styles = StyleSheet.create({
     
     img: {
       height: 150,
-      width:150,
+      width:180,
       borderWidth:3,
       borderRadius:10,
-      borderColor: '#FED766'
+      borderColor: '#FED766',
+      
     },
     
     imgbox: {
