@@ -75,7 +75,7 @@ const ChatScreen = ({ route }) => {
     };
   
     loadMessages();
-  }, [product.id]);
+  }, [product.id]); 
   
 
   return (

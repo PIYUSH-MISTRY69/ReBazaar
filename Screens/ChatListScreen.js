@@ -7,6 +7,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Alert, Button } from 'react-native';
 
 const ChatListScreen = ({ navigation }) => {
   const [chatList, setChatList] = useState([]);
@@ -38,6 +39,32 @@ const ChatListScreen = ({ navigation }) => {
     </TouchableOpacity>
   );
 
+  const clearAllChats = () => {
+    Alert.alert(
+      'Clear All Chats',
+      'Are you sure you want to delete all chat history?',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        {
+          text: 'Yes',
+          style: 'destructive',
+          onPress: async () => {
+            try {
+              const keys = await AsyncStorage.getAllKeys();
+              const chatKeys = keys.filter(key => key.startsWith('chat_'));
+              await AsyncStorage.multiRemove(chatKeys);
+              await AsyncStorage.removeItem('chat_list');
+              setChatList([]);
+            } catch (e) {
+              console.log('Error clearing chats:', e);
+            }
+          },
+        },
+      ]
+    );
+  };
+  
+
   return (
     <View style={styles.container}>
         <View style={{height:40}}>
@@ -51,6 +78,10 @@ const ChatListScreen = ({ navigation }) => {
           <Text style={styles.emptyText}>No chats yet.</Text>
         }
       />
+      <TouchableOpacity onPress={clearAllChats} style={styles.clearButton}>
+         <Text style={styles.clearButtonText}>Clear All Chats</Text>
+      </TouchableOpacity>
+ 
     </View>
   );
 };
@@ -88,4 +119,19 @@ const styles = StyleSheet.create({
     marginTop: 30,
     fontSize: 16,
   },
+
+  clearButton: {
+    backgroundColor: '#fed766', // button background
+    padding: 12,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  
+  clearButtonText: {
+    color: '#272727', 
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  
 });
