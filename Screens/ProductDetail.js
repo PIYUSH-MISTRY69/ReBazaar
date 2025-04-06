@@ -19,13 +19,27 @@ const ProductDetailsScreen = ({ route,navigation }) => {
 
           <View style={styles.sellerBox}>
           <Text style={styles.title}>{product.title}</Text>
-          <Text style={styles.price}>{product.price.toLocaleString()}</Text>
+          <Text style={styles.price}>{product.price.toLocaleString()}/-</Text>
           </View>
 
           <View style={styles.sellerBox}>
           <Text style={styles.sectionHeader}>Details:</Text>
           <Text style={styles.text}>{product.details}</Text>
           </View>
+
+
+          <View style={styles.sellerBox1}>
+            <View style={styles.sellerBox2}>
+            <Text style={styles.sectionHeader}>Category:</Text>
+            <Text style={styles.text}>{product.category}</Text>
+            </View>
+
+            <View style={styles.sellerBox2}>
+            <Text style={styles.sectionHeader}>Condition:</Text>
+            <Text style={styles.text}>{product.condition}</Text>
+            </View>
+          </View>
+
 
 
           <View style={styles.sellerBox}>
@@ -82,7 +96,7 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 22,
     color: '#fff',
-    marginBottom: 15,
+    marginBottom: 5,
   },
   sectionHeader: {
     fontSize: 18,
@@ -104,6 +118,22 @@ const styles = StyleSheet.create({
     padding: 10,
     marginTop: 8,
     marginBottom: 20
+  },
+  sellerBox1: {
+    flexDirection: "row",
+    width: "100%",
+    alignItems:"center",
+    justifyContent: "space-between",
+  },
+  sellerBox2: {
+    flexDirection: "column",
+    backgroundColor: '#333',
+    borderRadius: 8,
+    padding: 10,
+    marginTop: 8,
+    marginBottom: 20,
+    width:"47.5%",
+   
   },
   actionBar: {
     flexDirection: 'row',

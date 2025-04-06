@@ -20,6 +20,8 @@ const products = [
     price: '₹2,35,000',
     image: require('../assets/bike1.png'),
     details: '350cc | 2022 Model | Dual Channel ABS',
+    category: 'Bike',
+    condition: 'Like New',
     description: 'Royal Enfield Goan Classic in mint condition.\nYear: 2022\nOwner: 1st\nWell maintained, great for city & touring.',
     seller: {
       name: 'Ravi Mehta',
@@ -33,6 +35,8 @@ const products = [
     price: '₹1,45,696',
     image: require('../assets/bike2.jpg'),
     details: '220cc | 2021 Model | Single Channel ABS',
+    category: 'Bike',
+    condition: 'Poor',
     description: 'Bajaj Avenger Cruise in excellent condition.\nYear: 2021\nOwner: 2nd\nPerfect for long rides and daily commute.',
     seller: {
       name: 'Karan Joshi',
@@ -46,6 +50,8 @@ const products = [
     price: '₹1,73,562',
     image: require('../assets/bike3.jpeg'),
     details: '350cc | 2020 Model | Kick & Self Start',
+    category: 'Bike',
+    condition: 'Good',
     description: 'Classic Royal Enfield Bullet with smooth performance.\nYear: 2020\nOwner: 1st\nServiced recently.',
     seller: {
       name: 'Sohail Khan',
@@ -59,6 +65,8 @@ const products = [
     price: '₹2,85,000',
     image: require('../assets/bike4.webp'),
     details: '411cc | 2023 Model | Adventure Tourer',
+    category: 'Bike',
+    condition: 'New',
     description: 'Royal Enfield Himalayan built for off-road and long rides.\nYear: 2023\nOwner: 1st\nTop-notch condition.',
     seller: {
       name: 'Priya Singh',

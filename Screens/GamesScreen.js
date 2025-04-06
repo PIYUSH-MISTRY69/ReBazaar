@@ -20,6 +20,8 @@ const products = [
     price: '₹1,500',
     image: require('../assets/game1.jpg'),
     details: 'Xbox One version',
+    category: 'Games',
+    condition: 'Fair',
     description: 'Discs are in great condition.\nBoth discs are included.',
     seller: {
       name: 'Aman Sharma',
@@ -33,6 +35,8 @@ const products = [
     price: '₹2,600',
     image: require('../assets/game2.jpeg'),
     details: 'Xbox One version',
+    category: 'Games',
+    condition: 'Fair',
     description: 'Discs are in great condition.\nBoth discs are included.',
     seller: {
       name: 'Aman Sharma',
@@ -46,6 +50,8 @@ const products = [
     price: '₹2,199',
     image: require('../assets/game3.jpeg'),
     details: 'Xbox One version',
+    category: 'Games',
+    condition: 'New',
     description: 'Discs are in great condition.\nBoth discs are included.',
     seller: {
       name: 'Aman Sharma',
@@ -59,6 +65,8 @@ const products = [
     price: '₹1,600',
     image: require('../assets/game4.webp'),
     details: 'Xbox One version',
+    category: 'Games',
+    condition: 'Like New',
     description: 'Discs are in great condition.\nBoth discs are included.',
     seller: {
       name: 'Aman Sharma',

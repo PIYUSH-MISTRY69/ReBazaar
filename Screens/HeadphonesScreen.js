@@ -20,6 +20,8 @@ const products = [
     price: '₹13,500',
     image: require('../assets/headphones1.jpeg'),
     details: 'Type Mobile',
+    category: 'Headphones',
+    condition: 'New',
     description: 'Ear cushions have a sign of wear and tear.\nHeadphone works perfectly fine.',
     seller: {
       name: 'Aman Sharma',
@@ -33,6 +35,8 @@ const products = [
     price: '₹1,999',
     image: require('../assets/headphones2.jpeg'),
     details: 'Type Mobile',
+    category: 'Headphones',
+    condition: 'Like New',
     description: 'Ear cushions have a sign of wear and tear.\nHeadphone works perfectly fine.',
     seller: {
       name: 'Aman Sharma',
@@ -46,6 +50,8 @@ const products = [
     price: '₹17,999',
     image: require('../assets/headphones3.jpeg'),
     details: 'Type Mobile',
+    category: 'Headphones',
+    condition: 'Like New',
     description: 'Ear cushions have a sign of wear and tear.\nHeadphone works perfectly fine.',
     seller: {
       name: 'Aman Sharma',
@@ -59,6 +65,8 @@ const products = [
     price: '₹8,000',
     image: require('../assets/headphones4.jpeg'),
     details: 'Type Mobile',
+    category: 'Headphones',
+    condition: 'Poor',
     description: 'Ear cushions have a sign of wear and tear.\nHeadphone works perfectly fine.',
     seller: {
       name: 'Aman Sharma',

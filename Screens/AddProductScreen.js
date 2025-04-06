@@ -7,7 +7,7 @@ import * as ImagePicker from 'expo-image-picker';
 
 const conditions = ['New', 'Like New', 'Good', 'Fair', 'Poor'];
 const categories = [
-  'Mobile', 'TV', 'Car', 'Motorcycle',
+  'Mobile', 'TV', 'Car', 'Bike',
   'Headphones', 'Camera', 'RealEstate', 'Games'
 ];
 
@@ -18,7 +18,8 @@ const AddProductScreen = () => {
   const [form, setForm] = useState({
     title: '',
     description: '',
-    price: ''
+    price: '',
+    detail: ''
   });
 
   const pickImage = async () => {
@@ -72,6 +73,16 @@ const AddProductScreen = () => {
         value={form.price}
         onChangeText={(text) => setForm({ ...form, price: text })}
       />
+
+      <Text style={styles.label}>Detail</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Enter details (e.g. Model, Year of MFG)"
+        placeholderTextColor="#999"
+        value={form.detail}
+        onChangeText={(text) => setForm({ ...form, detail: text })}
+      />
+
 
       <Text style={styles.label}>Category</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.chips}>

@@ -20,6 +20,8 @@ const products = [
     price: '₹75,000',
     image: require('../assets/iphone.jpg'),
     details: '128GB, Midnight Black, 5G',
+    category: 'Mobile',
+    condition: 'Good',
     description: 'Brand new iPhone 14 with 1 year warranty.',
     seller: {
       name: 'Aman Sharma',
@@ -33,6 +35,8 @@ const products = [
     price: '₹55,000',
     image: require('../assets/galaxy.jpg'),
     details: '128GB, Midnight Black, 5G',
+    category: 'Mobile',
+    condition: 'Fair',
     description: 'Brand new iPhone 14 with 1 year warranty.',
     seller: {
       name: 'Aman Sharma',
@@ -46,6 +50,8 @@ const products = [
     price: '₹40,000',
     image: require('../assets/oneplus.jpg'),
     details: '128GB, Midnight Black, 5G',
+    category: 'Mobile',
+    condition: 'Like New',
     description: 'Brand new iPhone 14 with 1 year warranty.',
     seller: {
       name: 'Aman Sharma',
@@ -59,6 +65,8 @@ const products = [
     price: '₹39,999',
     image: require('../assets/redmi.jpg'),
     details: '128GB, Midnight Black, 5G',
+    category: 'Mobile',
+    condition: 'New',
     description: 'Brand new iPhone 14 with 1 year warranty.',
     seller: {
       name: 'Aman Sharma',

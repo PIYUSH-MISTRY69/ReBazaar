@@ -20,6 +20,8 @@ const products = [
     price: '₹13,000',
     image: require('../assets/tv1.jpeg'),
     details: 'Zero Dot Technology',
+    category: 'TV',
+    condition: 'Fair',
     description: '3 Month Used Available.\nGreat Experience.',
     seller: {
       name: 'Aman Sharma',
@@ -33,6 +35,8 @@ const products = [
     price: '₹17,999',
     image: require('../assets/tv2.jpeg'),
     details: 'Zero Dot Technology',
+    category: 'TV',
+    condition: 'New',
     description: '3 Month Used Available.\nGreat Experience.',
     seller: {
       name: 'Aman Sharma',
@@ -46,6 +50,8 @@ const products = [
     price: '₹12,500',
     image: require('../assets/tv3.jpeg'),
     details: 'Zero Dot Technology',
+    category: 'TV',
+    condition: 'Like New',
     description: '3 Month Used Available.\nGreat Experience.',
     seller: {
       name: 'Aman Sharma',
@@ -59,6 +65,8 @@ const products = [
     price: '₹21,999',
     image: require('../assets/tv4.jpeg'),
     details: 'Zero Dot Technology',
+    category: 'TV',
+    condition: 'Poor',
     description: '3 Month Used Available.\nGreat Experience.',
     seller: {
       name: 'Aman Sharma',

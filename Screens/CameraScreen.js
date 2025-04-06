@@ -20,6 +20,8 @@ const products = [
     price: '₹37,900',
     image: require('../assets/cam1.jpg'),
     details: 'Nikon DSLR D5300 With dual lens in mint condition',
+    category: 'Camera',
+    condition: 'Fair',
     description: 'Nikon D5300 in brand new condition and used only 3 to 4 times for sale.\nSelling because of no time for photography.',
     seller: {
       name: 'Aman Sharma',
@@ -33,6 +35,8 @@ const products = [
     price: '₹77,500',
     image: require('../assets/cam2.webp'),
     details: 'Nikon DSLR D5300 With dual lens in mint condition',
+    category: 'Camera',
+    condition: 'Fair',
     description: 'Nikon D5300 in brand new condition and used only 3 to 4 times for sale.\nSelling because of no time for photography.',
     seller: {
       name: 'Aman Sharma',
@@ -46,6 +50,8 @@ const products = [
     price: '₹1,085,000',
     image: require('../assets/cam3.jpg'),
     details: 'Nikon DSLR D5300 With dual lens in mint condition',
+    category: 'Camera',
+    condition: 'Like New',
     description: 'Nikon D5300 in brand new condition and used only 3 to 4 times for sale.\nSelling because of no time for photography.',
     seller: {
       name: 'Aman Sharma',
@@ -59,6 +65,8 @@ const products = [
     price: '₹30,999',
     image: require('../assets/cam4.jpg'),
     details: 'Nikon DSLR D5300 With dual lens in mint condition',
+    category: 'Camera',
+    condition: 'New',
     description: 'Nikon D5300 in brand new condition and used only 3 to 4 times for sale.\nSelling because of no time for photography.',
     seller: {
       name: 'Aman Sharma',

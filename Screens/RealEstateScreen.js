@@ -20,6 +20,8 @@ const products = [
     price: '₹2.55 Cr',
     image: require('../assets/real estate1.jpg'),
     details: 'Type of Ownership: Freehold',
+    category: 'RealEstate',
+    condition: 'Fair',
     description: 'Address: MG Road, Goregaon West, Mumbai - Western Mumbai, Maharashtra\nLandmarks: Near Azad Maidan And Jain Mandir',
     seller: {
       name: 'Aman Sharma',
@@ -33,6 +35,8 @@ const products = [
     price: '₹1.35 Cr',
     image: require('../assets/real estate2.jpg'),
     details: 'Type of Ownership: Freehold',
+    category: 'RealEstate',
+    condition: 'Poor',
     description: 'Address: MG Road, Goregaon West, Mumbai - Western Mumbai, Maharashtra\nLandmarks: Near Azad Maidan And Jain Mandir',
     seller: {
       name: 'Aman Sharma',
@@ -46,6 +50,8 @@ const products = [
     price: '₹12,500',
     image: require('../assets/real estate3.jpg'),
     details: 'Type of Ownership: Freehold',
+    category: 'RealEstate',
+    condition: 'New',
     description: 'Address: MG Road, Goregaon West, Mumbai - Western Mumbai, Maharashtra\nLandmarks: Near Azad Maidan And Jain Mandir',
     seller: {
       name: 'Aman Sharma',
@@ -59,6 +65,8 @@ const products = [
     price: '₹34.0 Lac',
     image: require('../assets/real estate4.jpg'),
     details: 'Type of Ownership: Freehold',
+    category: 'RealEstate',
+    condition: 'Like New',
     description: 'Address: MG Road, Goregaon West, Mumbai - Western Mumbai, Maharashtra\nLandmarks: Near Azad Maidan And Jain Mandir',
     seller: {
       name: 'Aman Sharma',

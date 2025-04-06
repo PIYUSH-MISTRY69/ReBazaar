@@ -20,6 +20,8 @@ const products = [
     price: '₹8,85,000',
     image: require('../assets/car1.jpeg'),
     details: '[2013-2016] 2.5 GX Diesel 8 STR BS IV',
+    category: 'Car',
+    condition: 'Like New',
     description: 'TOYOTA INNOVA 2.5 GX.\nYEAR : _29-JAN-2015\nOWNER : _2ND_',
     seller: {
       name: 'Aman Sharma',
@@ -33,6 +35,8 @@ const products = [
     price: '₹21,75,000',
     image: require('../assets/car2.webp'),
     details: '[2013-2016] 2.5 GX Diesel 8 STR BS IV',
+    category: 'Car',
+    condition: 'Poor',
     description: 'TOYOTA INNOVA 2.5 GX.\nYEAR : _29-JAN-2015\nOWNER : _2ND_',
     seller: {
       name: 'Aman Sharma',
@@ -46,6 +50,8 @@ const products = [
     price: '₹7,50,000',
     image: require('../assets/car3.webp'),
     details: '[2013-2016] 2.5 GX Diesel 8 STR BS IV',
+    category: 'Car',
+    condition: 'Good',
     description: 'TOYOTA INNOVA 2.5 GX.\nYEAR : _29-JAN-2015\nOWNER : _2ND_',
     seller: {
       name: 'Aman Sharma',
@@ -59,6 +65,8 @@ const products = [
     price: '₹5,25,000',
     image: require('../assets/car4.jpg'),
     details: '[2013-2016] 2.5 GX Diesel 8 STR BS IV',
+    category: 'Car',
+    condition: 'Like New',
     description: 'TOYOTA INNOVA 2.5 GX.\nYEAR : _29-JAN-2015\nOWNER : _2ND_',
     seller: {
       name: 'Aman Sharma',
