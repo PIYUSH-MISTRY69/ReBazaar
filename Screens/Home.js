@@ -31,7 +31,11 @@ export default function Home({ navigation }) {
       image: require('../assets/white-offroader-jeep-parking.jpg'),
       details: 'A powerful 4x4 off-roader perfect for adventure lovers.',
       description: 'This White Defender comes with advanced features and excellent condition.',
-      seller: 'John Doe'
+      seller: {
+        name:'Piyush',
+        rating:4,
+        yearsOnPlatform: 1.5
+      }
     },
     {
       id: 'hp2',
@@ -40,7 +44,11 @@ export default function Home({ navigation }) {
       image: require('../assets/black-motorcycle-white.jpg'),
       details: 'Cruiser-style motorcycle with comfortable seating.',
       description: 'Well-maintained Bajaj Avenger for city and highway cruising.',
-      seller: 'Aman Sharma'
+      seller: {
+        name:'Shravan',
+        rating:4,
+        yearsOnPlatform: 2.5
+      }
     },
     {
       id: 'hp3',
@@ -49,7 +57,11 @@ export default function Home({ navigation }) {
       image: require('../assets/2024-toyota-supra-45th-anniversary-edition_100889287_h.jpg'),
       details: 'Sports car with premium interiors and turbocharged engine.',
       description: 'This 2024 Toyota Supra is a collector’s dream with 45th anniversary edition trim.',
-      seller: 'Rahul Patel'
+      seller: {
+        name:'Archit',
+        rating:4,
+        yearsOnPlatform: 1
+      }
     },
     {
       id: 'hp4',
@@ -58,7 +70,11 @@ export default function Home({ navigation }) {
       image: require('../assets/royal-enfield-continental-gt-650-twin-1567499781.jpg'),
       details: 'Royal Enfield twin-cylinder café racer for performance riding.',
       description: 'Minimal use, service history available, single-owner bike.',
-      seller: 'Sneha Verma'
+      seller: {
+        name:'Aaron',
+        rating:4,
+        yearsOnPlatform: 3
+      }
     }
   ];
 
@@ -107,7 +123,7 @@ export default function Home({ navigation }) {
           </View>
         )
       ) : (
-        <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
+        <View contentContainerStyle={{ paddingBottom: 100 }}>
           <View style={styles.label}>
             <Text style={{ fontSize: 20, color: '#FFFFFF', fontWeight: 'bold' }}>Top Categories</Text>
           </View>
@@ -143,12 +159,12 @@ export default function Home({ navigation }) {
           </View>
 
           <View style={{ alignItems: 'center' }}>
-            <View style={{ backgroundColor: '#FED766', marginTop: 20, width: '30%', borderRadius: 9, padding: 3 }}>
+            <View style={{ backgroundColor: '#FED766', width: '30%', borderRadius: 9, padding: 3,marginTop:10 }}>
               <Text style={{ textAlign: 'center', fontSize: 20, color: '#000000', fontWeight: 'bold' }}>Hot picks!</Text>
             </View>
           </View>
 
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-evenly' }}>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between',marginBottom:15,marginTop:10 }}>
             {hotPicks.map((product) => (
               <TouchableOpacity
                 key={product.id}
@@ -161,7 +177,7 @@ export default function Home({ navigation }) {
               </TouchableOpacity>
             ))}
           </View>
-        </ScrollView>
+        </View>
       )}
 
       <Footer navigation={navigation} />
@@ -201,10 +217,11 @@ const styles = StyleSheet.create({
     borderColor: '#FED766',
     borderRadius: 10,
     marginTop: 40,
-    width: 240,
+    width: 260,
     paddingLeft: 10,
-    marginBottom: 20,
-    color: '#FFFFFF'
+    marginBottom: 15,
+    color: '#FFFFFF',
+    marginLeft:5
   },
   icon2: {
     color: "#FED766",
