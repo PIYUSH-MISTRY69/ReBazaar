@@ -15,7 +15,7 @@ const { width, height } = Dimensions.get('window');
 
 const products = [
   {
-    id: '1',
+    id: '29',
     title: 'RED DEAD 2',
     price: '₹1,500',
     image: require('../assets/game1.jpg'),
@@ -28,7 +28,7 @@ const products = [
     },
   },
   {
-    id: '2',
+    id: '30',
     title: 'God of war',
     price: '₹2,600',
     image: require('../assets/game2.jpeg'),
@@ -41,7 +41,7 @@ const products = [
     },
   },
   {
-    id: '3',
+    id: '31',
     title: 'Elden Ring',
     price: '₹2,199',
     image: require('../assets/game3.jpeg'),
@@ -54,7 +54,7 @@ const products = [
     },
   },
   {
-    id: '4',
+    id: '32',
     title: 'Grand Theft Auto V',
     price: '₹1,600',
     image: require('../assets/game4.webp'),
@@ -68,6 +68,7 @@ const products = [
   },
 ];
 
+export const gamesProducts = products;
 
 export default function MobileScreen({ navigation }) {
   const [search, setSearch] = useState('');
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   searchBar: {
-    marginTop: 20,
+    marginTop: 50,
     marginBottom: 10,
     borderWidth: 1,
     borderColor: '#FED766',

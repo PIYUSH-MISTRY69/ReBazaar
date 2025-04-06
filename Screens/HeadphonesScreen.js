@@ -15,7 +15,7 @@ const { width, height } = Dimensions.get('window');
 
 const products = [
   {
-    id: '1',
+    id: '171',
     title: 'JBL TOUR ONE M2',
     price: '₹13,500',
     image: require('../assets/headphones1.jpeg'),
@@ -28,7 +28,7 @@ const products = [
     },
   },
   {
-    id: '2',
+    id: '18',
     title: 'JBL LIVE 500BT',
     price: '₹1,999',
     image: require('../assets/headphones2.jpeg'),
@@ -41,7 +41,7 @@ const products = [
     },
   },
   {
-    id: '3',
+    id: '19',
     title: 'Sony WH-1000XM5',
     price: '₹17,999',
     image: require('../assets/headphones3.jpeg'),
@@ -54,7 +54,7 @@ const products = [
     },
   },
   {
-    id: '4',
+    id: '20',
     title: 'Original Marshal',
     price: '₹8,000',
     image: require('../assets/headphones4.jpeg'),
@@ -68,7 +68,7 @@ const products = [
   },
 ];
 
-
+export const headphonesProducts = products;
 export default function MobileScreen({ navigation }) {
   const [search, setSearch] = useState('');
 
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   searchBar: {
-    marginTop: 20,
+    marginTop: 50,
     marginBottom: 10,
     borderWidth: 1,
     borderColor: '#FED766',

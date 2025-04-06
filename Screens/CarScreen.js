@@ -15,7 +15,7 @@ const { width, height } = Dimensions.get('window');
 
 const products = [
   {
-    id: '1',
+    id: '9',
     title: '2015 Toyota Innova',
     price: '₹8,85,000',
     image: require('../assets/car1.jpeg'),
@@ -28,7 +28,7 @@ const products = [
     },
   },
   {
-    id: '2',
+    id: '10',
     title: '2015 BMW 5-Series',
     price: '₹21,75,000',
     image: require('../assets/car2.webp'),
@@ -41,7 +41,7 @@ const products = [
     },
   },
   {
-    id: '3',
+    id: '11',
     title: '2017 Honda City ZX',
     price: '₹7,50,000',
     image: require('../assets/car3.webp'),
@@ -54,7 +54,7 @@ const products = [
     },
   },
   {
-    id: '4',
+    id: '12',
     title: 'Volkswagen Polo GT',
     price: '₹5,25,000',
     image: require('../assets/car4.jpg'),
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   searchBar: {
-    marginTop: 20,
+    marginTop: 50,
     marginBottom: 10,
     borderWidth: 1,
     borderColor: '#FED766',

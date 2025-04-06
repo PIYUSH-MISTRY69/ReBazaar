@@ -15,7 +15,7 @@ const { width, height } = Dimensions.get('window');
 
 const products = [
   {
-    id: '1',
+    id: '25',
     title: '3 BHK For Sale',
     price: '₹2.55 Cr',
     image: require('../assets/real estate1.jpg'),
@@ -28,7 +28,7 @@ const products = [
     },
   },
   {
-    id: '2',
+    id: '26',
     title: '1 BHK Flat For Sale',
     price: '₹1.35 Cr',
     image: require('../assets/real estate2.jpg'),
@@ -41,7 +41,7 @@ const products = [
     },
   },
   {
-    id: '3',
+    id: '27',
     title: '2 BHK Flat For Sale',
     price: '₹12,500',
     image: require('../assets/real estate3.jpg'),
@@ -54,7 +54,7 @@ const products = [
     },
   },
   {
-    id: '4',
+    id: '28',
     title: '1 BHK Flat For Sale',
     price: '₹34.0 Lac',
     image: require('../assets/real estate4.jpg'),
@@ -68,7 +68,7 @@ const products = [
   },
 ];
 
-
+export const realestateProducts = products;
 export default function MobileScreen({ navigation }) {
   const [search, setSearch] = useState('');
 
@@ -114,9 +114,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#272727',
     flex: 1,
     paddingHorizontal: 10,
+    
   },
   searchBar: {
-    marginTop: 20,
+    marginTop: 50,
     marginBottom: 10,
     borderWidth: 1,
     borderColor: '#FED766',

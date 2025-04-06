@@ -15,7 +15,7 @@ const { width, height } = Dimensions.get('window');
 
 const products = [
   {
-    id: '1',
+    id: '21',
     title: 'Nikon D5300',
     price: '₹37,900',
     image: require('../assets/cam1.jpg'),
@@ -28,7 +28,7 @@ const products = [
     },
   },
   {
-    id: '2',
+    id: '22',
     title: 'Sony Hxr-Nx100',
     price: '₹77,500',
     image: require('../assets/cam2.webp'),
@@ -41,7 +41,7 @@ const products = [
     },
   },
   {
-    id: '3',
+    id: '23',
     title: 'CANON EOS C300',
     price: '₹1,085,000',
     image: require('../assets/cam3.jpg'),
@@ -54,7 +54,7 @@ const products = [
     },
   },
   {
-    id: '4',
+    id: '24',
     title: 'Canon 1300D',
     price: '₹30,999',
     image: require('../assets/cam4.jpg'),
@@ -69,6 +69,7 @@ const products = [
   
 ];
 
+export const cameraProducts = products;
 export default function MobileScreen({ navigation }) {
   const [search, setSearch] = useState('');
 
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   searchBar: {
-    marginTop: 20,
+    marginTop: 50,
     marginBottom: 10,
     borderWidth: 1,
     borderColor: '#FED766',

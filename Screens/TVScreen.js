@@ -15,7 +15,7 @@ const { width, height } = Dimensions.get('window');
 
 const products = [
   {
-    id: '1',
+    id: '5',
     title: '50 Inches Led Tv',
     price: '₹13,000',
     image: require('../assets/tv1.jpeg'),
@@ -28,7 +28,7 @@ const products = [
     },
   },
   {
-    id: '2',
+    id: '6',
     title: 'Mi 55 inch LED 4k',
     price: '₹17,999',
     image: require('../assets/tv2.jpeg'),
@@ -41,7 +41,7 @@ const products = [
     },
   },
   {
-    id: '3',
+    id: '7',
     title: '52 INCH ANDROID',
     price: '₹12,500',
     image: require('../assets/tv3.jpeg'),
@@ -54,7 +54,7 @@ const products = [
     },
   },
   {
-    id: '4',
+    id: '8',
     title: 'Lg smart Led tv',
     price: '₹21,999',
     image: require('../assets/tv4.jpeg'),
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   searchBar: {
-    marginTop: 20,
+    marginTop: 50,
     marginBottom: 10,
     borderWidth: 1,
     borderColor: '#FED766',

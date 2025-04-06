@@ -10,6 +10,7 @@ import ProfileScreen from './Screens/ProfileScreen';
 import HomeScreen from './Screens/HomeScreen';
 import { CartProvider } from './context/CartContext';
 import CartScreen from './Screens/CartScreen';
+import ChatScreen from './Screens/ChatScreen';
 
 // Import all category screens
 import MobileScreen from './Screens/MobileScreen';
@@ -45,6 +46,7 @@ export default function App() {
           <Stack.Screen name="Cart" component={CartScreen} options={{ headerShown: false }}/>
           <Stack.Screen name="AddProduct" component={AddProductScreen} options={{ headerShown: false }}/>
           <Stack.Screen name="Aboutus" component={Aboutus} options={{ headerShown: false }}/>
+          <Stack.Screen name="Chat" component={ChatScreen}  options={{ headerShown: false }}/>
         </Stack.Navigator>
       </NavigationContainer>
     </CartProvider>

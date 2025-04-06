@@ -15,7 +15,7 @@ const { width, height } = Dimensions.get('window');
 
 const products = [
   {
-    id: '1',
+    id: '13',
     title: 'Royal Enfield Goan Classic',
     price: '₹2,35,000',
     image: require('../assets/bike1.png'),
@@ -28,7 +28,7 @@ const products = [
     },
   },
   {
-    id: '2',
+    id: '14',
     title: 'Bajaj Avenger Cruise 220',
     price: '₹1,45,696',
     image: require('../assets/bike2.jpg'),
@@ -41,7 +41,7 @@ const products = [
     },
   },
   {
-    id: '3',
+    id: '15',
     title: 'Royal Enfield Bullet 350',
     price: '₹1,73,562',
     image: require('../assets/bike3.jpeg'),
@@ -54,7 +54,7 @@ const products = [
     },
   },
   {
-    id: '4',
+    id: '16',
     title: 'Royal Enfield Himalayan',
     price: '₹2,85,000',
     image: require('../assets/bike4.webp'),
@@ -68,7 +68,7 @@ const products = [
   },
 ];
 
-
+export const bikeProducts = products;
 export default function MobileScreen({ navigation }) {
   const [search, setSearch] = useState('');
 
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   searchBar: {
-    marginTop: 20,
+    marginTop: 50,
     marginBottom: 20,
     borderWidth: 1,
     borderColor: '#FED766',
