@@ -118,8 +118,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   searchBar: {
-    marginTop: 20,
-    marginBottom: 10,
+    marginTop: 50,
+    marginBottom: 20,
     borderWidth: 1,
     borderColor: '#FED766',
     borderRadius: 10,
