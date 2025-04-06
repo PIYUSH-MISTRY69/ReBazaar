@@ -164,7 +164,7 @@ export default function Home({ navigation }) {
             </View>
           </View>
 
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between',marginBottom:15,marginTop:10 }}>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-evenly',marginBottom:15,marginTop:10 }}>
             {hotPicks.map((product) => (
               <TouchableOpacity
                 key={product.id}

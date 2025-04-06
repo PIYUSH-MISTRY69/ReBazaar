@@ -118,11 +118,7 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     marginTop: 50,
-<<<<<<< HEAD
-    marginBottom: 10,
-=======
     marginBottom: 20,
->>>>>>> 7c585412634269ce1998c9f229127e8e658f0e61
     borderWidth: 1,
     borderColor: '#FED766',
     borderRadius: 10,

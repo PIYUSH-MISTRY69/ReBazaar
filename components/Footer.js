@@ -28,8 +28,8 @@ export default function Footer({ navigation }) {
           <Icon name="plus" size={50} color={'#FED766'} />
         </View>
       </TouchableOpacity>
-      <TouchableOpacity style={{ width: '12%', marginTop: 5 }} onPress={() => navigation.navigate('Chat')}>
-        <View style={{ backgroundColor: '#000000', alignItems: 'center', borderRadius: 10 }}  onPress={() => navigation.navigate('ChatScreen')}>
+      <TouchableOpacity style={{ width: '12%', marginTop: 5 }} onPress={() => navigation.navigate('ChatList')}>
+        <View style={{ backgroundColor: '#000000', alignItems: 'center', borderRadius: 10 }}  onPress={() => navigation.navigate('ChatListScreen')}>
           <Icon name="comment" size={40} color={'#FED766'} />
         </View>
       </TouchableOpacity>

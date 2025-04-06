@@ -48,7 +48,7 @@ const ProductDetailsScreen = ({ route,navigation }) => {
           <Icon name="shopping-cart" size={20} color="#000" />
           <Text style={styles.buttonText}>Add to Cart</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Chat', { product })}>
           <Icon name="comments" size={20} color="#000" />
           <Text style={styles.buttonText}>Chat</Text>
         </TouchableOpacity>

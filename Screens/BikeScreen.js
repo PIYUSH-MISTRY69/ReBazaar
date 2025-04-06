@@ -16,7 +16,7 @@ const { width, height } = Dimensions.get('window');
 const products = [
   {
     id: '13',
-    title: 'Royal Enfield Goan Classic',
+    title: 'Royal Enfield Classic',
     price: '₹2,35,000',
     image: require('../assets/bike1.png'),
     details: '350cc | 2022 Model | Dual Channel ABS',
@@ -29,7 +29,7 @@ const products = [
   },
   {
     id: '14',
-    title: 'Bajaj Avenger Cruise 220',
+    title: 'Bajaj Avenger 220',
     price: '₹1,45,696',
     image: require('../assets/bike2.jpg'),
     details: '220cc | 2021 Model | Single Channel ABS',
@@ -42,7 +42,7 @@ const products = [
   },
   {
     id: '15',
-    title: 'Royal Enfield Bullet 350',
+    title: 'Royal Enfield 350',
     price: '₹1,73,562',
     image: require('../assets/bike3.jpeg'),
     details: '350cc | 2020 Model | Kick & Self Start',
@@ -55,7 +55,7 @@ const products = [
   },
   {
     id: '16',
-    title: 'Royal Enfield Himalayan',
+    title: 'RE Himalayan',
     price: '₹2,85,000',
     image: require('../assets/bike4.webp'),
     details: '411cc | 2023 Model | Adventure Tourer',

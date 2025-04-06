@@ -1,139 +1,189 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {
   View,
   Text,
   StyleSheet,
-  FlatList,
   TextInput,
   TouchableOpacity,
+  FlatList,
   KeyboardAvoidingView,
   Platform,
-  SafeAreaView,
-  TouchableWithoutFeedback,
-  Keyboard,
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Footer from '../components/Footer'; // Adjust the path as needed
 
-const ChatScreen = ({ navigation }) => {
-  const [messages, setMessages] = useState([
-    { id: '1', text: 'Hi! How can I help you?', sender: 'seller' },
-    { id: '2', text: 'I’m interested in your product.', sender: 'buyer' },
-    { id: '3', text: 'Great! It’s still available.', sender: 'seller' },
-  ]);
-  const [input, setInput] = useState('');
+const ChatScreen = ({ route }) => {
+  const { product } = route.params;
 
-  const handleSend = () => {
-    if (input.trim() === '') return;
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState('');
 
-    const newMessage = {
-      id: Date.now().toString(),
-      text: input,
-      sender: 'buyer',
-    };
+  const handleSend = async () => {
+    if (newMessage.trim() !== '') {
+      const message = {
+        id: Date.now().toString(),
+        text: newMessage,
+        sender: 'You',
+        timestamp: new Date().toISOString(),
+      };
+  
+      const updatedMessages = [...messages, message];
+      setMessages(updatedMessages);
+      setNewMessage('');
+  
+      // Save to AsyncStorage
+      await AsyncStorage.setItem(
+        `chat_${product.id}`, // key per product
+        JSON.stringify(updatedMessages)
+      );
+  
+      // Update global chat list
+      const chatPreview = {
+        productId: product.id,
+        productTitle: product.title,
+        sellerName: product.seller.name,
+        lastMessage: message.text,
+        lastTimestamp: message.timestamp,
+      };
+  
+      const chatListRaw = await AsyncStorage.getItem('chat_list');
+      let chatList = chatListRaw ? JSON.parse(chatListRaw) : [];
+  
+      // Remove if already exists (avoid duplicates)
+      chatList = chatList.filter(c => c.productId !== product.id);
+      chatList.unshift(chatPreview); // add new chat to top
+  
+      await AsyncStorage.setItem('chat_list', JSON.stringify(chatList));
+    }
 
-    setMessages((prev) => [...prev, newMessage]);
-    setInput('');
+    
+    
   };
 
-  const renderItem = ({ item }) => (
-    <View
-      style={[
-        styles.message,
-        item.sender === 'buyer' ? styles.buyerMessage : styles.sellerMessage,
-      ]}
-    >
-      <Text style={styles.messageText}>{item.text}</Text>
-    </View>
-  );
+  useEffect(() => {
+    const loadMessages = async () => {
+      try {
+        const stored = await AsyncStorage.getItem(`chat_${product.id}`);
+        if (stored) {
+          setMessages(JSON.parse(stored));
+        }
+      } catch (e) {
+        console.log('Error loading messages:', e);
+      }
+    };
+  
+    loadMessages();
+  }, [product.id]);
+  
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <KeyboardAvoidingView
-          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-          style={styles.container}
-          keyboardVerticalOffset={90}
-        >
-          <FlatList
-            data={messages}
-            keyExtractor={(item) => item.id}
-            renderItem={renderItem}
-            contentContainerStyle={styles.chatContainer}
-          />
+    <KeyboardAvoidingView
+      style={styles.container}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      keyboardVerticalOffset={90}
+    >
+      <View style={styles.header}>
+        <Text style={styles.headerText}>
+          Chat with {product.seller.name} about "{product.title}"
+        </Text>
+      </View>
 
-          <View style={styles.inputContainer}>
-            <TextInput
-              style={styles.input}
-              value={input}
-              onChangeText={setInput}
-              placeholder="Type a message..."
-              placeholderTextColor="#ccc"
-            />
-            <TouchableOpacity style={styles.sendButton} onPress={handleSend}>
-              <Icon name="send" size={20} color="#FED766" />
-            </TouchableOpacity>
+      <FlatList
+        data={messages}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View style={styles.messageBubble}>
+            <Text style={styles.messageSender}>{item.sender}</Text>
+            <Text style={styles.messageText}>{item.text}</Text>
+            <Text style={styles.messageTimestamp}>{item.timestamp}</Text>
           </View>
-        </KeyboardAvoidingView>
-      </TouchableWithoutFeedback>
+        )}
+        contentContainerStyle={styles.messagesContainer}
+      />
 
-      
-      <Footer navigation={navigation} />
-    </SafeAreaView>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.textInput}
+          value={newMessage}
+          onChangeText={setNewMessage}
+          placeholder="Type your message..."
+          placeholderTextColor="#aaa"
+        />
+        <TouchableOpacity onPress={handleSend} style={styles.sendButton}>
+          <Text style={styles.sendButtonText}>Send</Text>
+        </TouchableOpacity>
+      </View>
+    </KeyboardAvoidingView>
   );
 };
 
 export default ChatScreen;
 
 const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: '#272727',
-    paddingTop : 50,
-  },
   container: {
     flex: 1,
+    backgroundColor: '#1e1e1e',
   },
-  chatContainer: {
-    padding: 10,
-    paddingBottom: 100, // To give space for input + footer
-  },
-  message: {
-    maxWidth: '70%',
-    padding: 10,
-    borderRadius: 10,
-    marginBottom: 10,
-  },
-  buyerMessage: {
+  header: {
+    padding: 15,
     backgroundColor: '#FED766',
-    alignSelf: 'flex-end',
+    borderBottomColor: '#333',
+    borderBottomWidth: 1,
+    marginTop:40
   },
-  sellerMessage: {
-    backgroundColor: '#444',
+  headerText: {
+    fontSize: 16,
+    color: '#000',
+    fontWeight: 'bold',
+  },
+  messagesContainer: {
+    padding: 10,
+  },
+  messageBubble: {
+    backgroundColor: '#333',
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 10,
     alignSelf: 'flex-start',
+    maxWidth: '80%',
+  },
+  messageSender: {
+    fontWeight: 'bold',
+    color: '#FED766',
   },
   messageText: {
-    color: '#000',
+    color: '#fff',
+    marginTop: 5,
+  },
+  messageTimestamp: {
+    fontSize: 10,
+    color: '#aaa',
+    marginTop: 5,
+    textAlign: 'right',
   },
   inputContainer: {
     flexDirection: 'row',
+    padding: 10,
+    backgroundColor: '#000',
     alignItems: 'center',
-    borderTopWidth: 1,
-    borderTopColor: '#444',
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    backgroundColor: '#333',
   },
-  input: {
+  textInput: {
     flex: 1,
+    backgroundColor: '#2a2a2a',
+    borderRadius: 8,
+    padding: 10,
     color: '#fff',
-    backgroundColor: '#555',
-    borderRadius: 20,
-    paddingHorizontal: 15,
-    paddingVertical: 8,
-    marginRight: 10,
   },
   sendButton: {
-    padding: 8,
+    marginLeft: 10,
+    backgroundColor: '#FED766',
+    padding: 10,
+    borderRadius: 8,
+  },
+  sendButtonText: {
+    fontWeight: 'bold',
+    color: '#000',
   },
 });

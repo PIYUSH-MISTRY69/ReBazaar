@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
     color: '#FED766',
     marginBottom: 15,
     fontWeight: 'bold',
+    marginTop:20
   },
   empty: {
     color: '#fff',
